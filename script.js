@@ -1,11 +1,11 @@
 async function unduh() {
     const url = document.getElementById('urlInput').value;
-    if (url) {
+    if (url && /^(https?:\/\/)?(www\.|vt\.|vm\.)?tiktok\.com\/.*$/.test(url)) {
         const tiktok = new TikTokDownloader();
         const result = await tiktok.download(url);
         window.location.href = result;
     } else {
-        alert('Harap masukkan URL TikTok.');
+        alert('Harap masukkan URL TikTok dengan benar!');
     }
 }
 
