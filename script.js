@@ -1,6 +1,6 @@
 const url = document.getElementById('urlInput').value;
 async function unduh(type) {
-    if (url && /^(https?:\/\/)?(www\.|vt\.|vm\.)?tiktok\.com\/.*$/.test(url)) {
+    if (url && url.includes("tiktok.com")) {
         const tiktok = new TikTokDownloader();
         const { video2, video_hd, music } = await (await tiktok.download(url)).result
         if (!type) {
