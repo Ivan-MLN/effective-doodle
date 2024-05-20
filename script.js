@@ -2,13 +2,14 @@ const url = document.getElementById('urlInput').value;
 async function unduh(type) {
     if (url && /^(https?:\/\/)?(www\.|vt\.|vm\.)?tiktok\.com\/.*$/.test(url)) {
         const tiktok = new TikTokDownloader();
+        const { video2, video_hd, music } = await (await tiktok.download(url)).result
         if (!type) {
             document.getElementById("submit").style.display = "hidden"
             document.getElementById("vd").style.display = "block"
             document.getElementById("hd").style.display = "block"
             document.getElementById("mp3").style.display = "block"
+            document.getElementById("vid").style.display = "block"
         } else {
-        const { video2, video_hd, music } = await (await tiktok.download(url)).result
         switch (type) {
             case "sd":
             window.location.href = video2
