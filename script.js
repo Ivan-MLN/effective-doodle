@@ -1,6 +1,6 @@
 async function unduh(type) {
     const url = document.getElementById('urlInput').value;
-    if (url && url.includes("tiktok.com")) {
+   // if (url && url.includes("tiktok.com")) {
         const tiktok = new TikTokDownloader();
         const { video2, video_hd, music } = await (await tiktok.download(url)).result
         if (!type) {
@@ -22,9 +22,9 @@ async function unduh(type) {
             break
         }
       }
-    } else {
-        alert('Harap masukkan URL TikTok dengan benar!');
-    }
+  //  } else {
+    //    alert('Harap masukkan URL TikTok dengan benar!');
+   // }
 }
 
 
