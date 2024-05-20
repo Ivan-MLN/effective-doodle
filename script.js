@@ -1,11 +1,13 @@
+const url = document.getElementById('urlInput').value;
+
 async function unduh() {
     const url = document.getElementById('urlInput').value;
-    if (url) {
+    if (url && /^(https?:\/\/)?(www\.|vt\.|vm\.)?tiktok\.com\/.*$/.test(url)) {
         const tiktok = new TikTokDownloader();
-        const result = await tiktok.download(url);
-        window.location.href = result;
+        const json = await tiktok.download(url);
+        window.location.href = json.result.video2
     } else {
-        alert('Harap masukkan URL TikTok.');
+        alert('Harap masukkan URL TikTok dengan benar!');
     }
 }
 
@@ -17,7 +19,7 @@ class TikTokDownloader {
     this.baseUrl = "https://api.tiklydown.eu.org/api";
   }
   async download(url) {
-      const res = await axios.get(this.baseUrl + "/download?url=" + url);
-      return res.data.video.noWatermark;
+      const res = await axios.get(this.baseUrl + "/download/v2?url=" + url);
+      return res.data;
   }
 }
