@@ -1,5 +1,5 @@
-const url = document.getElementById('urlInput').value;
 async function unduh(type) {
+    const url = document.getElementById('urlInput').value;
     if (url && url.includes("tiktok.com")) {
         const tiktok = new TikTokDownloader();
         const { video2, video_hd, music } = await (await tiktok.download(url)).result
