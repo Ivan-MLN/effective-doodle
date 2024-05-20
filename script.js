@@ -1,11 +1,26 @@
 const url = document.getElementById('urlInput').value;
-
-async function unduh() {
-    const url = document.getElementById('urlInput').value;
+async function unduh(type) {
     if (url && /^(https?:\/\/)?(www\.|vt\.|vm\.)?tiktok\.com\/.*$/.test(url)) {
         const tiktok = new TikTokDownloader();
-        const json = await tiktok.download(url);
-        window.location.href = json.result.video2
+        if (!type) {
+            document.getElementById("submit").style.display = "hidden"
+            document.getElementById("vd").style.display = "block"
+            document.getElementById("hd").style.display = "block"
+            document.getElementById("mp3").style.display = "block"
+        } else {
+        const { video2, video_hd, music } = await (await tiktok.download(url)).result
+        switch (type) {
+            case "sd":
+            window.location.href = video2
+            return video2
+            break 
+            case "hd":
+            window.location.href = video_hd
+            case "mp3":
+            window.location.href = json.result.music
+            break
+        }
+      }
     } else {
         alert('Harap masukkan URL TikTok dengan benar!');
     }
