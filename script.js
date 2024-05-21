@@ -2,7 +2,7 @@ const urlInput = document.getElementById('urlInput').value;
 const downloadButton = document.getElementById('downloadButton');
 
 document.getElementById('urlInput').addEventListener('input', function() {
-    downloadButton.disabled = !urlInput || !urlInput.includes("tiktok"));
+    downloadButton.disabled = false
 });
 
 async function unduh() {
