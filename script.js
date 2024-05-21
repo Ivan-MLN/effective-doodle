@@ -1,6 +1,7 @@
 function toggleButton() {
+    const urlInput = document.getElementById('urlInput').value;
     const downloadButton = document.getElementById('downloadButton');
-    downloadButton.disabled = false
+    downloadButton.disabled = !urlInput && !urlInput.includes("tiktok");
 }
 
 async function unduh() {
