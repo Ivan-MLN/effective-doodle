@@ -1,11 +1,10 @@
-const urlInput = document.getElementById('urlInput').value;
-const downloadButton = document.getElementById('downloadButton');
-
 function toggleButton() {
+    const downloadButton = document.getElementById('downloadButton');
     downloadButton.disabled = false
 }
 
 async function unduh() {
+    const urlInput = document.getElementById('urlInput').value;
     if (urlInput && urlInput.includes("tiktok")) {
         const Tiktok = new TikTokDownloader();
         const { result } = await Tiktok.download(urlInput);
