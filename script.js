@@ -1,11 +1,17 @@
+const urlInput = document.getElementById('urlInput').value;
+const downloadButton = document.getElementById('downloadButton');
+
+document.getElementById('urlInput').addEventListener('input', function() {
+    downloadButton.disabled = !urlInput || !urlInput.includes("tiktok"));
+});
+
 async function unduh() {
-    const urlInput = document.getElementById('urlInput').value;
-    if (urlInput && /^(https?:\/\/)?(www\.|vt\.|vm\.)?tiktok\.com\/.*$/.test(urlInput)) {
+    if (urlInput && urlInput.includes("tiktok")) {
         const Tiktok = new TikTokDownloader();
         const { result } = await Tiktok.download(urlInput);
         window.location.href = result.video2;
     } else {
-        alert('Harap masukkan URL TikTok dengan benar!');
+        return;
     }
 }
 
