@@ -5,6 +5,7 @@ function toggleButton() {
         downloadButton.disabled = false;
     } else {
         downloadButton.disabled = true;
+  }
 }
 
 async function unduh() {
