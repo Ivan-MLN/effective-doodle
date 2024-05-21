@@ -1,9 +1,9 @@
 const urlInput = document.getElementById('urlInput').value;
 const downloadButton = document.getElementById('downloadButton');
 
-document.getElementById('urlInput').addEventListener('input', function() {
+function toggleButton() {
     downloadButton.disabled = false
-});
+}
 
 async function unduh() {
     if (urlInput && urlInput.includes("tiktok")) {
